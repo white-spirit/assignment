@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.chip {
+  background: #EBE7E7;
+  color: #12131A;
+
+  padding: 4px 12px;
+  border-radius: 20px;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  text-transform: capitalize;
+  cursor: pointer;
+
+  &.active {
+    background: #12131A;
+    color: white;
+  }
+}

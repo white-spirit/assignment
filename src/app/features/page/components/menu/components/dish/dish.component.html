@@ -1,0 +1,11 @@
+<img [src]="dish.image" [alt]="dish.name">
+<div class="info-container">
+  <div class="main">
+    <span class="name">{{dish.name}}</span>
+    <span class="description">{{dish.description}}</span>
+  </div>
+  <div class="footer">
+    <ex-add-to-cart-button></ex-add-to-cart-button>
+    <span class="price">{{dish.price | currency: 'EUR'}}</span>
+  </div>
+</div>

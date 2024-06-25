@@ -1,0 +1,9 @@
+@for (filter of filters; track $index) {
+  <span
+    class="chip"
+    [ngClass]="{'active': activeFilter === filter}"
+    (click)="setActive(filter)"
+  >
+    {{filter}}
+  </span>
+}
