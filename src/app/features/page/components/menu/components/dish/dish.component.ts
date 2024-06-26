@@ -1,6 +1,7 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { AddToCartButtonComponent } from '../add-to-cart-button/add-to-cart-button.component';
+import { DishItem } from '../../../../shared/services/menu.service';
 
 @Component({
   selector: 'ex-dish',
@@ -13,5 +14,5 @@ import { AddToCartButtonComponent } from '../add-to-cart-button/add-to-cart-butt
   styleUrl: './dish.component.scss'
 })
 export class DishComponent {
-  @Input() dish: any = {};
+  @Input() dish!: DishItem;
 }

@@ -1,0 +1,40 @@
+.counter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+
+  .value {
+    justify-self: center;
+    font-weight: 600;
+  }
+
+  .counter-button {
+    width: 32px;
+    aspect-ratio: 1;
+
+    border: 1px solid #eeebeb;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    background: #ECE7E7;
+    color: #12131A;
+
+    &:hover {
+      background: #eeebeb;
+    }
+
+    &:active {
+      &:has(.fa-plus) {
+        background: #a1d1a3;
+      }
+
+      &:has(.fa-minus) {
+        background: #f0a6a1;
+      }
+    }
+  }
+}

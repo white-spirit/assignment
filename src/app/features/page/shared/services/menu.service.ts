@@ -1,7 +1,18 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, map } from 'rxjs';
+import { map } from 'rxjs';
 import { buildQueryParams } from '../buildQueryParams';
 import { HttpClient } from '@angular/common/http';
+
+type Category = 'Burgers' | 'Steaks'
+export type DishItem = {
+    id: string,
+    name: string,
+    description: string,
+    image: string,
+    price: number,
+    category: Category,
+    popular: boolean
+}
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +23,7 @@ export class MenuService {
   getMenu (filters: any) {
     const params = buildQueryParams(filters);
 
-    return this.http.get<any[]>('http://localhost:3000/dishes', { params })
+    return this.http.get<DishItem[]>('http://localhost:3000/dishes', { params })
       .pipe(map((data) => {
         const search = filters.search || '';
 

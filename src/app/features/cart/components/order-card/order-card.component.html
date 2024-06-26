@@ -1,0 +1,8 @@
+<div class="card">
+  <span class="name">{{order.name}}</span>
+  <span class="price">Price per item: {{order.price | currency: 'EUR'}}</span>
+  <div class="footer">
+    <span class="total">Total: {{totalPrice | currency: 'EUR'}}</span>
+    <ex-counter [count]="order.count" (onChange)="onCountChange($event)"></ex-counter>
+  </div>
+</div>

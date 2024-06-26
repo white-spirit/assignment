@@ -1,32 +1,41 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { CounterComponent } from '../../../../shared/components/counter/counter.component';
+import { CartService } from '../../../../../shared/services/cart.service';
+import { DishItem } from '../../../../shared/services/menu.service';
 
 @Component({
   selector: 'ex-add-to-cart-button',
   standalone: true,
-  imports: [],
+  imports: [CounterComponent],
   templateUrl: './add-to-cart-button.component.html',
   styleUrl: './add-to-cart-button.component.scss'
 })
 export class AddToCartButtonComponent {
-  @Input() dish: any = {};
+  private cartService = inject(CartService);
+
+  @Input() dish!: DishItem;
 
   isActive = false;
-  count = 1;
 
-  decrease() {
-    this.count--;
-
-    if (!this.count) {
-      this.isActive = false;
-      this.count = 1;
-    }
-  }
-
-  increase () {
-    this.count++;
-  }
-
-  setActive() {
+  addToCart() {
     this.isActive = true;
+
+    this.cartService.addCartItem({
+      id: this.dish.id,
+      name: this.dish.name,
+      price: this.dish.price,
+      count: 1
+    }).subscribe(() => console.log('added'))
+  }
+
+  onCountChange (event: number) {
+    if (event === 0) {
+      this.cartService.delete(this.dish.id).subscribe(() => console.log('deleted'));
+      this.isActive = false;
+    } else {
+      this.cartService.updateItem(this.dish.id, {
+        count: event
+      }).subscribe(() => console.log('updated'))
+    }
   }
 }

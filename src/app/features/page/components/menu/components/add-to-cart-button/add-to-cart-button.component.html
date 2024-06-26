@@ -1,25 +1,8 @@
 @if (isActive) {
-  <div class="counter">
-    <button
-      (click)="decrease()"
-      class="counter-button"
-    >
-      <i class="fas fa-minus"></i>
-    </button>
-    <span class="value">
-      {{count}}
-    </span>
-    <button
-      (click)="increase()"
-      class="counter-button"
-    >
-      <i class="fas fa-plus"></i>
-    </button>
-  </div>
-
+  <ex-counter (onChange)="onCountChange($event)"></ex-counter>
 } @else {
   <button
-    (click)="setActive()"
+    (click)="addToCart()"
     class="button"
   >Add to cart</button>
 }

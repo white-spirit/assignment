@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FilterCategory, FilterService } from '../../../../shared/services';
 
-
 @Component({
   selector: 'ex-filters',
   standalone: true,

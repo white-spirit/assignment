@@ -18,9 +18,26 @@
 
   .name {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 16px;
     font-weight: 600;
     line-height: 1.5;
+
+    i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      aspect-ratio: 1;
+      margin-right: 20px;
+      font-size: 10px;
+      border-radius: 50%;
+      color: black;
+      border: 2px solid black;
+
+      cursor: help;
+    }
   }
 
   .description {

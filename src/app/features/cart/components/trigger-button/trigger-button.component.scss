@@ -1,0 +1,40 @@
+.button {
+  position: relative;
+  width: 90px;
+  height: 90px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: #F64E0C;
+  color: white;
+
+  cursor: pointer;
+
+  i {
+    font-size: 24px;
+    transform: translate(-5px, 5px);
+  }
+
+  .badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    color: black;
+    border-radius: 50%;
+
+    height: 20px;
+    aspect-ratio: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 600;
+  }
+}

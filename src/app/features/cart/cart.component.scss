@@ -1,0 +1,33 @@
+.cart-container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: white;
+  width: 380px;
+
+  padding: 50px 20px;
+  box-shadow: 2px 0 4px 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .far {
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+.trigger-button {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}

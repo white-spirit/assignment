@@ -1,1 +1,17 @@
-<p>cart works!</p>
+@if (isOpen) {
+  <div class="cart-container">
+    <div class="header">
+      <h2>Your order</h2>
+      <i (click)="toggle()" class="far fa-times-circle"></i>
+    </div>
+    @for (order of orders; track $index) {
+      <ex-order-card [order]="order"></ex-order-card>
+    }
+    @if (!orders.length) {
+      <span>No orders yet.</span>
+    }
+    <ex-order-summary></ex-order-summary>
+  </div>
+} @else {
+  <ex-trigger-button class="trigger-button" (click)="toggle()"></ex-trigger-button>
+}

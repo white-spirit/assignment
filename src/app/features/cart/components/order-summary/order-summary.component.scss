@@ -1,0 +1,53 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+
+  .prices-contanier {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+
+    .price {
+      display: flex;
+      justify-content: space-between;
+
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .button {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.5;
+      border: none;
+      border-radius: 12px;
+      padding: 8px 12px;
+
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.6;
+      }
+
+      &:active {
+        opacity: 0.9;
+      }
+
+      &.order-button {
+        background-color: #F64E0C;
+        color: white;
+      }
+    }
+  }
+}

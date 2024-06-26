@@ -1,0 +1,30 @@
+.card {
+  background: #F7F7F7;
+  border: 1px solid #EBE7E7;
+  border-radius: 12px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+
+  .name, .total {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .price {
+    font-size: 14px;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .total {
+      color: #F64E0C;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<div class="prices-contanier">
+  <div class="price">
+    <span> Subtotal </span>
+    <span> {{subtotal | currency: 'EUR'}} </span>
+  </div>
+  <div class="price">
+    <span> Delivery fee </span>
+    <span> {{deliveryFee | currency: 'EUR'}} </span>
+  </div>
+  <div class="price">
+    <span> Total </span>
+    <span> {{total | currency: 'EUR'}} </span>
+  </div>
+</div>
+
+<div class="buttons-container">
+  <button class="button order-button">Order ( {{total | currency: 'EUR' }} )</button>
+  <button class="button">Continue shopping</button>
+</div>
