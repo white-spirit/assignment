@@ -2,5 +2,11 @@
   <div class="search-icon">
     <i class="fas fa-search"></i>
   </div>
-  <input type="text" placeholder="Search" class="search-input" />
+  <input
+    type="text"
+    placeholder="Search"
+    class="search-input"
+    [(ngModel)]="inputValue"
+    (ngModelChange)="onSearch($event)"
+  />
 </div>

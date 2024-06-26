@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { DishComponent } from './components/dish/dish.component';
+import { FilterService } from '../../shared/services';
+import { MenuService } from '../../shared/services/menu.service';
 
 @Component({
   selector: 'ex-menu',
@@ -12,13 +13,14 @@ import { DishComponent } from './components/dish/dish.component';
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
-  private http = inject(HttpClient);
+  private menuService = inject(MenuService);
+  private filtersService = inject(FilterService);
+
   data: any[] = [];
 
   ngOnInit () {
-    this.http.get<any[]>('http://localhost:3000/dishes').subscribe((data) => {
-      console.log(data)
-      this.data = data;
-    })
+    this.filtersService.currentFilters.subscribe((filters) => {
+      this.menuService.getMenu(filters).subscribe(data => this.data = data);
+    });
   }
 }

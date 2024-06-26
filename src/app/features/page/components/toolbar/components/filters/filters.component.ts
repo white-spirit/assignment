@@ -1,11 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FilterCategory, FilterService } from '../../../../shared/services';
 
-enum FilterType {
-  Popular = 'popular',
-  Burgers = 'burgers',
-  Steaks = 'steaks',
-}
 
 @Component({
   selector: 'ex-filters',
@@ -15,10 +11,17 @@ enum FilterType {
   styleUrl: './filters.component.scss'
 })
 export class FiltersComponent {
-  filters = [FilterType.Popular, FilterType.Burgers, FilterType.Steaks];
-  activeFilter = 'popular';
+  private filtersService = inject(FilterService);
 
-  setActive (filter: FilterType) {
+  filters = [FilterCategory.Popular, FilterCategory.Burgers, FilterCategory.Steaks];
+  activeFilter = FilterCategory.Popular;
+
+  setActive (filter: FilterCategory) {
+    const params = filter === FilterCategory.Popular
+      ? { popular: true }
+      : { category: filter};
+
     this.activeFilter = filter;
+    this.filtersService.updateFilters(params);
   }
 }
