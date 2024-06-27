@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 export enum FilterCategory {
@@ -7,15 +7,14 @@ export enum FilterCategory {
   Steaks = 'Steaks',
 }
 
+export type Filter = {
+  popular?: boolean;
+  category?: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
-  private filterSubject = new BehaviorSubject<any>({ popular: true });
-
-  currentFilters = this.filterSubject;
-
-  updateFilters(filters: any) {
-    this.filterSubject.next(filters);
-  }
+  currentFilters = signal<Filter>({ popular: true });
 }

@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, effect, inject } from '@angular/core';
 import { CounterComponent } from '../../../../shared/components/counter/counter.component';
 import { CartService } from '../../../../../shared/services/cart.service';
 import { DishItem } from '../../../../shared/services/menu.service';
@@ -16,6 +16,24 @@ export class AddToCartButtonComponent {
   @Input() dish!: DishItem;
 
   isActive = false;
+  count = 1;
+
+  private checkCart () {
+    const item = this.cartService.cart().find((item) => item.id === this.dish.id);
+    this.isActive = Boolean(item);
+  }
+
+  constructor() {
+    effect(() => {
+      this.count = this.cartService.cart().find((item) => item.id === this.dish.id)?.count || 1;
+
+      this.checkCart();
+    });
+  }
+
+  ngOnChanges () {
+    this.checkCart();
+  }
 
   addToCart() {
     this.isActive = true;

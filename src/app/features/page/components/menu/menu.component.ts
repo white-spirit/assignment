@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { DishComponent } from './components/dish/dish.component';
 import { FilterService } from '../../shared/services';
 import { DishItem, MenuService } from '../../shared/services/menu.service';
+import { CartService } from '../../../shared/services/cart.service';
 
 @Component({
   selector: 'ex-menu',
@@ -18,9 +19,10 @@ export class MenuComponent {
 
   dishes: DishItem[] = [];
 
-  ngOnInit () {
-    this.filtersService.currentFilters.subscribe((filters) => {
-      this.menuService.getMenu(filters).subscribe(data => this.dishes = data);
-    });
+  constructor () {
+    effect(() => {
+      this.menuService.getMenu(this.filtersService.currentFilters())
+        .subscribe(data => this.dishes = data);
+    })
   }
 }

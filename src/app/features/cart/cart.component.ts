@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { OrderCardComponent } from './components/order-card/order-card.component';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 import { TriggerButtonComponent } from './components/trigger-button/trigger-button.component';
@@ -21,21 +21,24 @@ export class CartComponent {
   isOpen = false;
 
   orders: CartItem[] = [];
+  displayOrderState = false;
+
+  constructor() {
+    effect(() => {
+      this.orders = this.cartService.cart();
+    })
+  }
 
   ngOnInit () {
-    this.cartService.getCartItems().subscribe(data => {
-      this.orders = data;
-    })
+    this.cartService.getCartItems().subscribe();
   }
 
   toggle () {
     this.isOpen = !this.isOpen;
+    this.displayOrderState = false;
+  }
 
-    if (this.isOpen) {
-      this.cartService.getCartItems().subscribe(data => {
-        console.log(data);
-        this.orders = data;
-      })
-    }
+  doOrder () {
+    this.displayOrderState = true;
   }
 }

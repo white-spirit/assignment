@@ -36,17 +36,21 @@
 
       cursor: pointer;
 
-      &:hover {
+      &:hover:not(:disabled) {
         opacity: 0.6;
       }
 
-      &:active {
+      &:active:not(:disabled) {
         opacity: 0.9;
       }
 
       &.order-button {
         background-color: #F64E0C;
         color: white;
+      }
+
+      &:disabled {
+        opacity: 0.4;
       }
     }
   }

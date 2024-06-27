@@ -21,6 +21,6 @@ export class FiltersComponent {
       : { category: filter};
 
     this.activeFilter = filter;
-    this.filtersService.updateFilters(params);
+    this.filtersService.currentFilters.set(params as any);
   }
 }

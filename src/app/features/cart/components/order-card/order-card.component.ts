@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, inject } from '@angular/core';
 import { AddToCartButtonComponent } from '../../../page/components/menu/components/add-to-cart-button/add-to-cart-button.component';
 import { CurrencyPipe } from '@angular/common';
 import { CounterComponent } from '../../../page/shared/components/counter/counter.component';
@@ -15,13 +15,13 @@ import { CartItem, CartService } from '../../../shared/services/cart.service';
   templateUrl: './order-card.component.html',
   styleUrl: './order-card.component.scss'
 })
-export class OrderCardComponent {
+export class OrderCardComponent implements OnChanges {
   private cartService = inject(CartService);
   @Input() order!: CartItem;
 
   totalPrice = 0;
 
-  ngOnInit() {
+  ngOnChanges(): void {
     this.totalPrice = this.order.price * this.order.count;
   }
 

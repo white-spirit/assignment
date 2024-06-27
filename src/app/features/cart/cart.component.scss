@@ -31,3 +31,20 @@
   bottom: 50px;
   right: 50px;
 }
+
+.success-message {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 24px;
+  font-weight: 600;
+
+  i {
+    font-size: 80px;
+    color: green;
+  }
+}

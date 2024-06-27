@@ -14,6 +14,12 @@
 </div>
 
 <div class="buttons-container">
-  <button class="button order-button">Order ( {{total | currency: 'EUR' }} )</button>
-  <button class="button">Continue shopping</button>
+  <button
+    class="button order-button"
+    [disabled]="!total"
+    (click)="order()"
+  >
+    Order ( {{total | currency: 'EUR' }} )
+  </button>
+  <button class="button" (click)="toggle()">Continue shopping</button>
 </div>

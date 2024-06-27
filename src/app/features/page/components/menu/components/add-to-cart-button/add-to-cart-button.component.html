@@ -1,5 +1,5 @@
 @if (isActive) {
-  <ex-counter (onChange)="onCountChange($event)"></ex-counter>
+  <ex-counter [count]="count" (onChange)="onCountChange($event)"></ex-counter>
 } @else {
   <button
     (click)="addToCart()"
