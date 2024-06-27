@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TriggerButtonComponent } from './trigger-button.component';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('TriggerButtonComponent', () => {
   let component: TriggerButtonComponent;
@@ -8,7 +10,11 @@ describe('TriggerButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TriggerButtonComponent]
+      imports: [TriggerButtonComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+      ]
     })
     .compileComponents();
 

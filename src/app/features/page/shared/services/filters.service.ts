@@ -10,6 +10,7 @@ export enum FilterCategory {
 export type Filter = {
   popular?: boolean;
   category?: string;
+  search?: string;
 }
 
 @Injectable({

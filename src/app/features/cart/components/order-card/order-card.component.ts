@@ -27,11 +27,11 @@ export class OrderCardComponent implements OnChanges {
 
   onCountChange (event: number) {
     if (event === 0) {
-      this.cartService.delete(this.order.id).subscribe(() => console.log('deleted'))
+      this.cartService.delete(this.order.id).subscribe(() => console.log('Item was removed from cart.'))
     } else {
       this.cartService.updateItem(this.order.id, {
         count: event
-      }).subscribe((data: any) => {
+      }).subscribe((data: CartItem) => {
         this.order = data;
       })
     }

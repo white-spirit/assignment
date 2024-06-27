@@ -16,7 +16,7 @@ export class SearchComponent {
 
   inputValue = '';
 
-  onSearch ($event: Event) {
-    this.filtersService.currentFilters.set({ search: $event } as any)
+  onSearch ($event: string) {
+    this.filtersService.currentFilters.set({ search: $event })
   }
 }

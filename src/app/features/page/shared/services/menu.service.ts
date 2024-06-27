@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { map } from 'rxjs';
 import { buildQueryParams } from '../buildQueryParams';
 import { HttpClient } from '@angular/common/http';
+import { Filter } from './filters.service';
 
 type Category = 'Burgers' | 'Steaks'
 export type DishItem = {
@@ -20,7 +21,7 @@ export type DishItem = {
 export class MenuService {
   private http = inject(HttpClient);
 
-  getMenu (filters: any) {
+  getMenu (filters: Filter) {
     const params = buildQueryParams(filters);
 
     return this.http.get<DishItem[]>('http://localhost:3000/dishes', { params })

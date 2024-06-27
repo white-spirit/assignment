@@ -43,17 +43,17 @@ export class AddToCartButtonComponent {
       name: this.dish.name,
       price: this.dish.price,
       count: 1
-    }).subscribe(() => console.log('added'))
+    }).subscribe(() => console.log('Item as added to cart.'))
   }
 
   onCountChange (event: number) {
     if (event === 0) {
-      this.cartService.delete(this.dish.id).subscribe(() => console.log('deleted'));
+      this.cartService.delete(this.dish.id).subscribe(() => console.log('Item was deleted from cart.'));
       this.isActive = false;
     } else {
       this.cartService.updateItem(this.dish.id, {
         count: event
-      }).subscribe(() => console.log('updated'))
+      }).subscribe(() => console.log('Item\'s count was updated'))
     }
   }
 }
