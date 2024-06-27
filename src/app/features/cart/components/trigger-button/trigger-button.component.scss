@@ -1,3 +1,5 @@
+@import '../../../shared/styles/common';
+
 .button {
   position: relative;
   width: 90px;
@@ -10,7 +12,7 @@
   border: none;
   border-radius: 50%;
 
-  background-color: #F64E0C;
+  background-color: $red-10;
   color: white;
 
   cursor: pointer;
@@ -22,13 +24,13 @@
 
   .badge {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: $space-20;
+    right: $space-20;
     background: white;
     color: black;
     border-radius: 50%;
 
-    height: 20px;
+    height: $space-20;
     aspect-ratio: 1;
 
     display: flex;

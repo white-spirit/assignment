@@ -1,3 +1,5 @@
+@import './../../../../shared/styles/common';
+
 .counter {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -13,27 +15,27 @@
     width: 32px;
     aspect-ratio: 1;
 
-    border: 1px solid #eeebeb;
-    border-radius: 8px;
+    border: 1px solid $counter-border;
+    border-radius: $border-radius-small;
 
     font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
 
-    background: #ECE7E7;
-    color: #12131A;
+    background: $counter-main;
+    color: $black;
 
     &:hover {
-      background: #eeebeb;
+      background: $counter-hover;
     }
 
     &:active {
       &:has(.fa-plus) {
-        background: #a1d1a3;
+        background: $green-10;
       }
 
       &:has(.fa-minus) {
-        background: #f0a6a1;
+        background: $red-20;
       }
     }
   }

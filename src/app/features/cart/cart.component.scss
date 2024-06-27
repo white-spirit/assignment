@@ -1,3 +1,5 @@
+@import './../shared/styles/common';
+
 .cart-container {
   position: fixed;
   right: 0;
@@ -6,12 +8,12 @@
   background: white;
   width: 380px;
 
-  padding: 50px 20px;
-  box-shadow: 2px 0 4px 0;
+  padding: $space-50 $space-20;
+  box-shadow: $shadow;
 
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: $space-dafault;
   overflow: auto;
 }
 
@@ -39,7 +41,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;
+  gap: $space-20;
   font-size: 24px;
   font-weight: 600;
 

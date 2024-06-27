@@ -1,14 +1,18 @@
+@import './../shared/styles/common';
+
+$container-width: 1280px;
+
 :host {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  max-width: 1280px;
-  margin: 40px auto 0;
+  gap: $space-20;
+  max-width: $container-width;
+  margin: $space-40 auto 0;
   background: white;
-  height: calc(100vh - 40px);
+  height: calc(100vh - $space-40);
 
-  border-radius: 8px;
-  padding: 10px;
+  border-radius: $border-radius-small;
+  padding: $space-dafault;
 
   overflow: auto;
 }

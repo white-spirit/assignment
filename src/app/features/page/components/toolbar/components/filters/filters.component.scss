@@ -1,16 +1,18 @@
+@import './../../../../../shared/styles/common';
+
 :host {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: $space-dafault;
 }
 
 .chip {
-  background: #EBE7E7;
-  color: #12131A;
+  background: $grey-20;
+  color: $black;
 
-  padding: 4px 12px;
-  border-radius: 20px;
+  padding:$space-4 $space-12;
+  border-radius: $border-radius-large;
 
   font-size: 14px;
   line-height: 1.5;
@@ -19,7 +21,7 @@
   cursor: pointer;
 
   &.active {
-    background: #12131A;
+    background: $black;
     color: white;
   }
 }
